@@ -1,318 +1,240 @@
 /**
  * Daily Tech Hacks - Main JavaScript File
- * Provides interactive functionality for the tech education website
+ * Minimal vanilla JS for navigation and interactivity
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initializeMobileMenu();
-  initializeTestimonialSlider();
-  initializeFormValidation();
-  initializeSmoothScrolling();
+    initializeMobileMenu();
+    initializeHeaderScroll();
+    initializeNewsletterForm();
+    initializeSmoothScrolling();
+    initializeFilterTabs();
 });
 
 /**
- * Mobile Menu Toggle Functionality
+ * Mobile Menu Toggle
  */
 function initializeMobileMenu() {
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  
-  if (mobileMenuToggle && navMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on nav links
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-  }
-}
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-/**
- * Testimonial Slider Functionality
- */
-function initializeTestimonialSlider() {
-  const testimonials = document.querySelectorAll('.testimonial');
-  const dots = document.querySelectorAll('.dot');
-  const prevButton = document.querySelector('.testimonial-controls .prev');
-  const nextButton = document.querySelector('.testimonial-controls .next');
-  
-  if (!testimonials.length || !dots.length) return;
-  
-  let currentSlide = 0;
-  
-  // Hide all testimonials except the first one
-  for (let i = 1; i < testimonials.length; i++) {
-    testimonials[i].style.display = 'none';
-  }
-  
-  // Function to show a specific slide
-  function showSlide(index) {
-    // Hide all testimonials
-    testimonials.forEach(testimonial => {
-      testimonial.style.display = 'none';
-    });
-    
-    // Remove active class from all dots
-    dots.forEach(dot => {
-      dot.classList.remove('active');
-    });
-    
-    // Show the selected testimonial
-    testimonials[index].style.display = 'block';
-    
-    // Add active class to the corresponding dot
-    dots[index].classList.add('active');
-    
-    // Update current slide index
-    currentSlide = index;
-  }
-  
-  // Event listeners for dots
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-    });
-  });
-  
-  // Event listener for prev button
-  if (prevButton) {
-    prevButton.addEventListener('click', () => {
-      let newIndex = currentSlide - 1;
-      if (newIndex < 0) {
-        newIndex = testimonials.length - 1;
-      }
-      showSlide(newIndex);
-    });
-  }
-  
-  // Event listener for next button
-  if (nextButton) {
-    nextButton.addEventListener('click', () => {
-      let newIndex = currentSlide + 1;
-      if (newIndex >= testimonials.length) {
-        newIndex = 0;
-      }
-      showSlide(newIndex);
-    });
-  }
-  
-  // Auto-advance slides every 5 seconds
-  setInterval(() => {
-    let newIndex = currentSlide + 1;
-    if (newIndex >= testimonials.length) {
-      newIndex = 0;
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     }
-    showSlide(newIndex);
-  }, 5000);
 }
 
 /**
- * Form Validation Functionality
+ * Header scroll effect
  */
-function initializeFormValidation() {
-  const contactForm = document.getElementById('contact-form');
-  const newsletterForm = document.querySelector('.newsletter-form');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Simple validation
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      
-      if (!name.value.trim()) {
-        showValidationError(name, 'Please enter your name');
-        return;
-      }
-      
-      if (!email.value.trim()) {
-        showValidationError(email, 'Please enter your email');
-        return;
-      }
-      
-      if (!isValidEmail(email.value)) {
-        showValidationError(email, 'Please enter a valid email address');
-        return;
-      }
-      
-      // If validation passes, you would normally submit the form
-      // For this demo, we'll show a success message
-      showSuccessMessage(contactForm, 'Thank you for your submission! We will contact you soon.');
+function initializeHeaderScroll() {
+    const header = document.querySelector('header');
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+}
+
+/**
+ * Newsletter form handling
+ */
+function initializeNewsletterForm() {
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+
+            if (!email || !isValidEmail(email)) {
+                showMessage(form, 'Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Simulate subscription
+            showMessage(form, 'Thanks for subscribing! Check your inbox for confirmation.', 'success');
+            emailInput.value = '';
+        });
     });
-  }
-  
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const emailInput = newsletterForm.querySelector('input[type="email"]');
-      
-      if (!emailInput.value.trim()) {
-        showValidationError(emailInput, 'Please enter your email');
-        return;
-      }
-      
-      if (!isValidEmail(emailInput.value)) {
-        showValidationError(emailInput, 'Please enter a valid email address');
-        return;
-      }
-      
-      // If validation passes
-      showSuccessMessage(newsletterForm, 'Thank you for subscribing to our newsletter!');
-    });
-  }
+
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const message = document.getElementById('message')?.value.trim();
+
+            if (!name || !email || !message) {
+                showMessage(contactForm, 'Please fill in all required fields', 'error');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showMessage(contactForm, 'Please enter a valid email address', 'error');
+                return;
+            }
+
+            showMessage(contactForm, 'Message sent successfully! We\'ll get back to you soon.', 'success');
+            contactForm.reset();
+        });
+    }
 }
 
 /**
- * Show validation error message
+ * Show message helper
  */
-function showValidationError(inputElement, message) {
-  // Remove any existing error messages
-  const existingError = inputElement.parentElement.querySelector('.error-message');
-  if (existingError) {
-    existingError.remove();
-  }
-  
-  // Create and add error message
-  const errorElement = document.createElement('div');
-  errorElement.className = 'error-message';
-  errorElement.style.color = '#dc3545';
-  errorElement.style.fontSize = '0.875rem';
-  errorElement.style.marginTop = '5px';
-  errorElement.textContent = message;
-  
-  inputElement.parentElement.appendChild(errorElement);
-  
-  // Highlight the input field
-  inputElement.style.borderColor = '#dc3545';
-  
-  // Remove error after 3 seconds
-  setTimeout(() => {
-    errorElement.remove();
-    inputElement.style.borderColor = '';
-  }, 3000);
-  
-  // Focus on the input
-  inputElement.focus();
+function showMessage(container, text, type) {
+    // Remove existing messages
+    const existing = container.querySelector('.form-message');
+    if (existing) existing.remove();
+
+    const message = document.createElement('div');
+    message.className = `form-message form-message-${type}`;
+    message.style.cssText = `
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-top: 16px;
+        font-size: 0.9rem;
+        text-align: center;
+        ${type === 'success'
+            ? 'background: rgba(0, 200, 83, 0.15); color: #00c853; border: 1px solid rgba(0, 200, 83, 0.3);'
+            : 'background: rgba(255, 59, 48, 0.15); color: #ff3b30; border: 1px solid rgba(255, 59, 48, 0.3);'}
+    `;
+    message.textContent = text;
+
+    container.appendChild(message);
+
+    setTimeout(() => message.remove(), 5000);
 }
 
 /**
- * Show success message after form submission
- */
-function showSuccessMessage(formElement, message) {
-  // Clear the form
-  formElement.reset();
-  
-  // Create success message
-  const successElement = document.createElement('div');
-  successElement.className = 'success-message';
-  successElement.style.backgroundColor = '#28a745';
-  successElement.style.color = 'white';
-  successElement.style.padding = '10px';
-  successElement.style.borderRadius = '5px';
-  successElement.style.marginTop = '20px';
-  successElement.textContent = message;
-  
-  // Add success message to form
-  formElement.appendChild(successElement);
-  
-  // Remove success message after 5 seconds
-  setTimeout(() => {
-    successElement.remove();
-  }, 5000);
-}
-
-/**
- * Email validation helper
+ * Email validation
  */
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 /**
- * Smooth Scrolling for Navigation Links
+ * Smooth scrolling for anchor links
  */
 function initializeSmoothScrolling() {
-  const navLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        // Get the header height for offset
-        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-        
-        // Calculate scroll position
-        const offsetTop = targetElement.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('header')?.offsetHeight || 70;
+                const offsetTop = targetElement.offsetTop - headerHeight - 20;
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
-      }
     });
-  });
 }
 
 /**
- * Add course module animations
+ * Filter tabs for hacks page
  */
-document.addEventListener('DOMContentLoaded', () => {
-  animateOnScroll();
-  window.addEventListener('scroll', animateOnScroll);
-});
+function initializeFilterTabs() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const hackCards = document.querySelectorAll('.hack-card');
 
-/**
- * Animate elements when they come into view
- */
-function animateOnScroll() {
-  const elements = document.querySelectorAll('.course-card, .approach-feature, .timeline-item');
-  
-  elements.forEach(element => {
-    const elementTop = element.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    
-    if (elementTop < windowHeight * 0.9) {
-      element.classList.add('fade-in');
-    }
-  });
+    if (!filterTabs.length || !hackCards.length) return;
+
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Update active tab
+            filterTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const category = tab.dataset.category;
+
+            // Filter cards
+            hackCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = '';
+                    card.style.animation = 'fadeInUp 0.4s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
 }
 
 /**
- * Add fade-in class for animation
+ * Copy code snippets
  */
-document.head.insertAdjacentHTML('beforeend', `
-  <style>
-    .fade-in {
-      animation: fadeIn 0.6s ease forwards;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .course-card, .approach-feature, .timeline-item {
-      opacity: 0;
-    }
-  </style>
-`);
+function copyToClipboard(text, button) {
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 2000);
+    });
+}
+
+/**
+ * Reading progress indicator (for hack pages)
+ */
+function initializeReadingProgress() {
+    const progressBar = document.querySelector('.reading-progress');
+    const article = document.querySelector('.article-main');
+
+    if (!progressBar || !article) return;
+
+    window.addEventListener('scroll', () => {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
+
+        const progress = Math.min(
+            Math.max((scrollPosition - articleTop + windowHeight) / articleHeight, 0),
+            1
+        );
+
+        progressBar.style.width = `${progress * 100}%`;
+    });
+}
+
+// Initialize reading progress on hack pages
+if (document.querySelector('.hack-page')) {
+    document.addEventListener('DOMContentLoaded', initializeReadingProgress);
+}

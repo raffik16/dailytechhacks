@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Daily Tech Hacks - Problem-solution focused technology education for iPhone, iPad, Mac, PC, and Smart Home devices">
-    <meta name="keywords" content="tech education, iPhone tutorials, iPad productivity, Mac fundamentals, PC basics, Smart Home solutions">
+    <meta name="description" content="Daily Tech Hacks - Discover the best tech tips, productivity hacks, and solutions to everyday technology problems. Fix slow computers, extend battery life, boost Wi-Fi, and work smarter in 2025.">
+    <meta name="keywords" content="daily tech hacks, tech tips 2025, productivity hacks, fix slow computer, phone battery tips, Wi-Fi boost, technology solutions, best tech tips">
     <meta name="author" content="Daily Tech Hacks">
-    <title>Daily Tech Hacks | Problem-Solution Technology Education</title>
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Daily Tech Hacks | Technology Education">
-    <meta property="og:description" content="Practical problem-solution focused technology education for everyday devices">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="islcb4SrvZdeW5rQjm2Kj5wfLOzyxfB-YprxfAaIGwU">
+    <title>Daily Tech Hacks | Best Tech Tips & Productivity Hacks 2025</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dailytechhacks.com/">
+
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dailytechhacks.com">
-    
+    <meta property="og:url" content="https://dailytechhacks.com/">
+    <meta property="og:title" content="Daily Tech Hacks | Best Tech Tips & Productivity Hacks 2025">
+    <meta property="og:description" content="Discover proven tech hacks to solve everyday problems. Fix slow devices, boost productivity, and master technology with our expert guides.">
+    <meta property="og:image" content="https://dailytechhacks.com/images/og-home.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daily Tech Hacks | Best Tech Tips & Productivity Hacks 2025">
+    <meta name="twitter:description" content="Discover proven tech hacks to solve everyday problems. Fix slow devices, boost productivity, and master technology.">
+
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- Preload critical resources -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Daily Tech Hacks",
+        "url": "https://dailytechhacks.com",
+        "description": "Your go-to resource for daily tech tips, productivity hacks, and solutions to common technology problems.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://dailytechhacks.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html">Daily Tech Hacks</a>
+                    <a href="index.html">
+                        <span class="logo-icon">⚡</span>
+                        Daily Tech Hacks
+                    </a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#approach">Our Approach</a></li>
-                    <li><a href="#calendar">Course Calendar</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="hacks.html">All Hacks</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
                     <span class="bar"></span>
@@ -51,454 +90,322 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Learn Technology Through Real-World Problems</h1>
-                    <p>Practical, hands-on tech education for iPhone, iPad, Mac, PC, and Smart Home devices.</p>
+                    <span class="section-label">Tech Tips That Actually Work</span>
+                    <h1>Discover Daily Tech Hacks to Solve Everyday Problems</h1>
+                    <p class="subtitle">Master technology with proven tips and tricks. From fixing slow computers to extending battery life, our expert guides help you work smarter and boost productivity in 2025.</p>
                     <div class="cta-buttons">
-                        <a href="#courses" class="btn btn-primary">Explore Courses</a>
-                        <a href="#approach" class="btn btn-secondary">Our Approach</a>
+                        <a href="hacks.html" class="btn btn-primary">Browse All Hacks →</a>
+                        <a href="#featured" class="btn btn-secondary">Featured Tips</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Expert Guides</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100K+</span>
+                            <span class="stat-label">Problems Solved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2025</span>
+                            <span class="stat-label">Updated</span>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="image-placeholder" aria-label="Technology devices illustration">
-                        <img src="https://72kprdtker.ufs.sh/f/TzuqaIBcmV9dPNZWg5SCPSyZLsQ0c8RUoAhajEIt65nNevlr" alt="Technology devices illustration">
+                    <div class="hero-graphic" aria-label="Technology illustration">
+                        <!-- Placeholder for hero image -->
                     </div>
                 </div>
             </div>
         </section>
-        <iframe src="https://tapfol.io/raf" frameborder="0" style="width: 100%; height: 700px; border: none;"></iframe>
 
-        <!-- Course Modules Section -->
-        <section id="courses" class="courses">
+        <!-- Featured Hacks Section -->
+        <section id="featured" class="featured-section">
             <div class="container">
-                <h2>Core Technology Modules</h2>
-                <p class="section-description">Practical problem-solution education designed for real-world technology use.</p>
-                
-                <div class="course-cards">
-                    <!-- iPhone Course Module -->
-                    <div class="course-card">
-                        <div class="course-icon">=�</div>
-                        <h3>iPhone Essentials</h3>
-                        <p>Master daily iPhone tasks with practical solutions to common frustrations.</p>
-                        <ul class="course-details">
-                            <li>4 weekly 90-minute sessions</li>
-                            <li>Problem-solution approach</li>
-                            <li>Weekly hands-on practice</li>
-                        </ul>
-                        <div class="sample-problems">
-                            <h4>Sample Problems Solved:</h4>
-                            <ul>
-                                <li>"I can't find that photo someone sent me"</li>
-                                <li>"Texting takes too long and I make mistakes"</li>
-                                <li>"I miss important messages from family"</li>
-                            </ul>
+                <div class="section-header">
+                    <span class="section-label">Most Popular</span>
+                    <h2>Featured Tech Hacks for 2025</h2>
+                    <p>Our most-read guides solving the most common tech frustrations. Start here for quick wins.</p>
+                </div>
+
+                <div class="hacks-grid">
+                    <!-- Hack Card 1 -->
+                    <article class="hack-card" data-category="mobile">
+                        <div class="hack-card-image">🔋</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Mobile</span>
+                            <h3><a href="hacks/extend-phone-battery-life.html">How to Extend Phone Battery Life: 10 Proven Hacks</a></h3>
+                            <p>Stop your phone from dying mid-day. Learn settings tweaks and habits that can extend battery by 30-50%.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">8 min read</span>
+                                <a href="hacks/extend-phone-battery-life.html" class="read-more">Read Guide →</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                    
-                    <!-- iPad Course Module -->
-                    <div class="course-card">
-                        <div class="course-icon">=�</div>
-                        <h3>iPad Productivity</h3>
-                        <p>Harness the power of your iPad for everyday tasks and creative projects.</p>
-                        <ul class="course-details">
-                            <li>4 weekly 90-minute sessions</li>
-                            <li>Problem-solution approach</li>
-                            <li>Weekly hands-on practice</li>
-                        </ul>
-                        <div class="sample-problems">
-                            <h4>Sample Problems Solved:</h4>
-                            <ul>
-                                <li>"I want to use my iPad like a computer"</li>
-                                <li>"Taking notes is still easier on paper"</li>
-                                <li>"I can't organize my digital documents"</li>
-                            </ul>
+                    </article>
+
+                    <!-- Hack Card 2 -->
+                    <article class="hack-card" data-category="computer">
+                        <div class="hack-card-image">💻</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Computer</span>
+                            <h3><a href="hacks/speed-up-slow-windows-computer.html">Speed Up a Slow Windows Computer Without New Hardware</a></h3>
+                            <p>Your PC doesn't need replacing. These free fixes can make it feel brand new again.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">10 min read</span>
+                                <a href="hacks/speed-up-slow-windows-computer.html" class="read-more">Read Guide →</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                    
-                    <!-- Mac Course Module -->
-                    <div class="course-card">
-                        <div class="course-icon">=�</div>
-                        <h3>Mac Fundamentals</h3>
-                        <p>Navigate your Mac with confidence and discover powerful time-saving features.</p>
-                        <ul class="course-details">
-                            <li>4 weekly 90-minute sessions</li>
-                            <li>Problem-solution approach</li>
-                            <li>Weekly hands-on practice</li>
-                        </ul>
-                        <div class="sample-problems">
-                            <h4>Sample Problems Solved:</h4>
-                            <ul>
-                                <li>"I can't find my files when I need them"</li>
-                                <li>"My computer is getting slower"</li>
-                                <li>"I need to back up but don't know how"</li>
-                            </ul>
+                    </article>
+
+                    <!-- Hack Card 3 -->
+                    <article class="hack-card" data-category="network">
+                        <div class="hack-card-image">📶</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Network</span>
+                            <h3><a href="hacks/boost-wifi-signal-strength.html">Boost Wi-Fi Signal and Fix Weak Connection Issues</a></h3>
+                            <p>No more dead zones. Position, settings, and hardware tips to maximize your wireless coverage.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">7 min read</span>
+                                <a href="hacks/boost-wifi-signal-strength.html" class="read-more">Read Guide →</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                    
-                    <!-- PC Course Module -->
-                    <div class="course-card">
-                        <div class="course-icon">=�</div>
-                        <h3>PC Basics</h3>
-                        <p>Master Windows essentials and solve common PC frustrations with simple solutions.</p>
-                        <ul class="course-details">
-                            <li>4 weekly 90-minute sessions</li>
-                            <li>Problem-solution approach</li>
-                            <li>Weekly hands-on practice</li>
-                        </ul>
-                        <div class="sample-problems">
-                            <h4>Sample Problems Solved:</h4>
-                            <ul>
-                                <li>"Windows updates disrupt my work"</li>
-                                <li>"My computer has too many programs"</li>
-                                <li>"I'm worried about computer viruses"</li>
-                            </ul>
+                    </article>
+
+                    <!-- Hack Card 4 -->
+                    <article class="hack-card" data-category="productivity">
+                        <div class="hack-card-image">⌨️</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Productivity</span>
+                            <h3><a href="hacks/keyboard-shortcuts-productivity.html">Master Keyboard Shortcuts for 10x Faster Productivity</a></h3>
+                            <p>Stop clicking around. The essential shortcuts every Mac and Windows user needs to know.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">12 min read</span>
+                                <a href="hacks/keyboard-shortcuts-productivity.html" class="read-more">Read Guide →</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                    
-                    <!-- Smart Home Course Module -->
-                    <div class="course-card">
-                        <div class="course-icon"><�</div>
-                        <h3>Smart Home Solutions</h3>
-                        <p>Set up and manage smart home devices with confidence and ease.</p>
-                        <ul class="course-details">
-                            <li>4 weekly 90-minute sessions</li>
-                            <li>Problem-solution approach</li>
-                            <li>Weekly hands-on practice</li>
-                        </ul>
-                        <div class="sample-problems">
-                            <h4>Sample Problems Solved:</h4>
-                            <ul>
-                                <li>"My devices don't work together"</li>
-                                <li>"Setting up new devices is frustrating"</li>
-                                <li>"I'm concerned about privacy"</li>
-                            </ul>
+                    </article>
+
+                    <!-- Hack Card 5 -->
+                    <article class="hack-card" data-category="security">
+                        <div class="hack-card-image">🔒</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Security</span>
+                            <h3><a href="hacks/secure-online-accounts.html">Secure Your Online Accounts from Hackers</a></h3>
+                            <p>Protect yourself from phishing and data breaches with these essential security practices.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">9 min read</span>
+                                <a href="hacks/secure-online-accounts.html" class="read-more">Read Guide →</a>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
+                    </article>
+
+                    <!-- Hack Card 6 -->
+                    <article class="hack-card" data-category="productivity">
+                        <div class="hack-card-image">📁</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Productivity</span>
+                            <h3><a href="hacks/organize-digital-files.html">Organize Digital Files and Declutter Your Desktop</a></h3>
+                            <p>Find any file in seconds. A simple system to end digital chaos forever.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">6 min read</span>
+                                <a href="hacks/organize-digital-files.html" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a href="hacks.html" class="btn btn-outline">View All 25 Tech Hacks →</a>
                 </div>
             </div>
         </section>
-        
-        <!-- Our Approach Section -->
-        <section id="approach" class="approach">
+
+        <!-- Categories Section -->
+        <section class="categories-section">
             <div class="container">
-                <h2>Our Unique Teaching Approach</h2>
-                <p class="section-description">We focus on real-world problems, not abstract features.</p>
-                
-                <div class="approach-features">
-                    <!-- Topic-Based Sessions -->
-                    <div class="approach-feature">
-                        <div class="feature-icon"><�</div>
-                        <h3>Problem-Solution Sessions</h3>
-                        <p>Each session tackles 3-4 common problems rather than explaining features. We start with "When you want to..." instead of "This feature does..."</p>
-                    </div>
-                    
-                    <!-- Hands-On Workshops -->
-                    <div class="approach-feature">
-                        <div class="feature-icon">=P</div>
-                        <h3>Hands-On Workshops</h3>
-                        <p>Structured sessions with guided practice time ensure you can apply what you learn immediately.</p>
-                    </div>
-                    
-                    <!-- Visual Reference Guides -->
-                    <div class="approach-feature">
-                        <div class="feature-icon">=�</div>
-                        <h3>Visual Reference Guides</h3>
-                        <p>One-page cheat sheets for each session with step-by-step solutions and screenshots to reinforce learning.</p>
-                    </div>
-                    
-                    <!-- Real-Life Scenarios -->
-                    <div class="approach-feature">
-                        <div class="feature-icon"><</div>
-                        <h3>Real-Life Scenarios</h3>
-                        <p>All learning is anchored in everyday activities like planning events, documenting vacations, and managing health information.</p>
-                    </div>
-                    
-                    <!-- Progressive Complexity -->
-                    <div class="approach-feature">
-                        <div class="feature-icon">=�</div>
-                        <h3>Progressive Complexity</h3>
-                        <p>Content is structured from basic to advanced, allowing you to build confidence week by week.</p>
-                    </div>
+                <div class="section-header">
+                    <span class="section-label">Browse by Topic</span>
+                    <h2>Find Hacks by Category</h2>
+                    <p>Jump directly to the solutions you need most.</p>
+                </div>
+
+                <div class="categories-grid">
+                    <a href="hacks.html#mobile" class="category-card">
+                        <div class="category-icon">📱</div>
+                        <h3>Mobile & Phone</h3>
+                        <span>8 Hacks</span>
+                    </a>
+                    <a href="hacks.html#computer" class="category-card">
+                        <div class="category-icon">💻</div>
+                        <h3>Computer & PC</h3>
+                        <span>6 Hacks</span>
+                    </a>
+                    <a href="hacks.html#productivity" class="category-card">
+                        <div class="category-icon">⚡</div>
+                        <h3>Productivity</h3>
+                        <span>5 Hacks</span>
+                    </a>
+                    <a href="hacks.html#security" class="category-card">
+                        <div class="category-icon">🔒</div>
+                        <h3>Security & Privacy</h3>
+                        <span>3 Hacks</span>
+                    </a>
+                    <a href="hacks.html#network" class="category-card">
+                        <div class="category-icon">📶</div>
+                        <h3>Network & Internet</h3>
+                        <span>3 Hacks</span>
+                    </a>
                 </div>
             </div>
         </section>
-        
-        <!-- Course Calendar Section -->
-        <section id="calendar" class="calendar">
-            <div class="container">
-                <h2>Sample Course Calendar</h2>
-                <p class="section-description">Our recommended learning path for mastering everyday technology.</p>
-                
-                <div class="calendar-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-month">Month 1</div>
-                        <div class="timeline-content">
-                            <h3>iPhone Essentials</h3>
-                            <div class="timeline-weeks">
-                                <div class="week">
-                                    <h4>Week 1: "Staying Connected"</h4>
-                                    <ul>
-                                        <li>Finding messages and photos people have sent you</li>
-                                        <li>Responding faster with voice-to-text and reactions</li>
-                                        <li>Setting up important notifications</li>
-                                    </ul>
-                                </div>
-                                <div class="week">
-                                    <h4>Week 2: "Photos Made Simple"</h4>
-                                    <ul>
-                                        <li>Taking better photos with built-in camera features</li>
-                                        <li>Finding specific photos instantly</li>
-                                        <li>Creating and sharing photo collections for events</li>
-                                    </ul>
-                                </div>
-                                <div class="week">
-                                    <h4>Week 3: "Health & Wellbeing"</h4>
-                                    <ul>
-                                        <li>Setting up medication reminders</li>
-                                        <li>Tracking walking and activity without extra devices</li>
-                                        <li>Sharing health information with family or doctors</li>
-                                    </ul>
-                                </div>
-                                <div class="week">
-                                    <h4>Week 4: "iPhone Mastery"</h4>
-                                    <ul>
-                                        <li>Automating daily tasks with shortcuts</li>
-                                        <li>Custom settings for better visibility and hearing</li>
-                                        <li>Managing and extending battery life</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-month">Month 2</div>
-                        <div class="timeline-content">
-                            <h3>iPad Productivity</h3>
-                            <p>Master your iPad for creative projects, note-taking, and document management.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-month">Month 3</div>
-                        <div class="timeline-content">
-                            <h3>Mac Fundamentals</h3>
-                            <p>Discover powerful Mac features for organization, productivity, and digital security.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-month">Month 4</div>
-                        <div class="timeline-content">
-                            <h3>PC Basics</h3>
-                            <p>Navigate Windows confidently and solve common PC challenges with simple solutions.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-month">Month 5</div>
-                        <div class="timeline-content">
-                            <h3>Smart Home Solutions</h3>
-                            <p>Create a connected home experience that enhances convenience and security.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <h2>What Our Students Say</h2>
-                <div class="testimonial-slider">
-                    <div class="testimonial">
-                        <div class="quote">"I've tried online tutorials before, but nothing clicked until this course. The problem-solution approach makes so much sense!"</div>
-                        <div class="author">- Margaret W., 68</div>
-                    </div>
-                    <div class="testimonial">
-                        <div class="quote">"The visual reference guides have become my technology bible. I refer to them constantly."</div>
-                        <div class="author">- Robert T., 72</div>
-                    </div>
-                    <div class="testimonial">
-                        <div class="quote">"Finally, I can use my phone without calling my grandkids for help every time!"</div>
-                        <div class="author">- Susan B., 65</div>
-                    </div>
-                </div>
-                <div class="testimonial-controls">
-                    <button class="prev" aria-label="Previous testimonial">�</button>
-                    <div class="dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <button class="next" aria-label="Next testimonial">�</button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Get Started Today</h2>
-                <p class="section-description">Complete our short survey to help us tailor your learning experience.</p>
-                
-                <div class="contact-columns">
-                    <div class="contact-form">
-                        <h3>Technology Learning Survey</h3>
-                        <form id="contact-form" action="#" method="POST">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label>Which device do you use most frequently?</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="device" value="smartphone"> Smartphone</label>
-                                    <label><input type="radio" name="device" value="tablet"> Tablet</label>
-                                    <label><input type="radio" name="device" value="laptop"> Laptop</label>
-                                    <label><input type="radio" name="device" value="desktop"> Desktop</label>
-                                    <label><input type="radio" name="device" value="smarthome"> Smart Home Devices</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="frustration">What causes you the most technology frustration?</label>
-                                <select id="frustration" name="frustration">
-                                    <option value="">Please select...</option>
-                                    <option value="photos">Finding and organizing photos</option>
-                                    <option value="passwords">Remembering passwords</option>
-                                    <option value="connecting">Staying connected with family</option>
-                                    <option value="files">Managing files and documents</option>
-                                    <option value="setup">Setting up new devices</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Any specific technology challenges you'd like help with?</label>
-                                <textarea id="message" name="message" rows="4"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit Survey</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>Have questions about our courses? Contact us directly.</p>
-                        <ul class="contact-details">
-                            <li><strong>Email:</strong> <a href="mailto:info@dailytechhacks.com">info@dailytechhacks.com</a></li>
-                            <li><strong>Phone:</strong> <a href="tel:5551234567">(555) 123-4567</a></li>
-                            <li><strong>Address:</strong> 123 Tech Avenue, Digital City, TC 12345</li>
-                        </ul>
-                        <div class="social-media">
-                            <a href="#" aria-label="Facebook"><span class="social-icon">Facebook</span></a>
-                            <a href="#" aria-label="Twitter"><span class="social-icon">Twitter</span></a>
-                            <a href="#" aria-label="Instagram"><span class="social-icon">Instagram</span></a>
-                            <a href="#" aria-label="YouTube"><span class="social-icon">YouTube</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+
         <!-- Newsletter Section -->
-        <section class="newsletter">
+        <section class="newsletter-section">
             <div class="container">
-                <h2>Subscribe to Our Weekly Tech Tips</h2>
-                <p>Get practical technology solutions delivered to your inbox every week.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
+                <div class="newsletter">
+                    <h2>Get Weekly Tech Hacks in Your Inbox</h2>
+                    <p>Join 10,000+ readers getting our best tips every Tuesday. No spam, unsubscribe anytime.</p>
+                    <form class="newsletter-form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe Free</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Hacks Section -->
+        <section class="more-hacks-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">More Solutions</span>
+                    <h2>More Tech Hacks to Explore</h2>
+                    <p>Dive deeper into our collection of proven tech solutions.</p>
+                </div>
+
+                <div class="hacks-grid">
+                    <!-- Additional Hack Cards -->
+                    <article class="hack-card" data-category="network">
+                        <div class="hack-card-image">🌐</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Network</span>
+                            <h3><a href="hacks/fix-slow-internet-browsing.html">Fix Slow Internet Browsing and Loading Times</a></h3>
+                            <p>Speed up your web experience with DNS tweaks, browser optimization, and connection fixes.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">7 min read</span>
+                                <a href="hacks/fix-slow-internet-browsing.html" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hack-card" data-category="mobile">
+                        <div class="hack-card-image">💾</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Mobile</span>
+                            <h3><a href="hacks/save-phone-storage-space.html">Save Phone Storage Space When It's Always Full</a></h3>
+                            <p>Free up gigabytes without losing important data. Smart storage management tips.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">6 min read</span>
+                                <a href="hacks/save-phone-storage-space.html" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hack-card" data-category="productivity">
+                        <div class="hack-card-image">🎯</div>
+                        <div class="hack-card-content">
+                            <span class="hack-category">Productivity</span>
+                            <h3><a href="hacks/block-distractions-focus.html">Block Distractions and Improve Focus on Devices</a></h3>
+                            <p>Reclaim your attention. Apps, settings, and strategies to stay focused.</p>
+                            <div class="hack-card-footer">
+                                <span class="hack-meta">8 min read</span>
+                                <a href="hacks/block-distractions-focus.html" class="read-more">Read Guide →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Trust Us Section -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Readers Trust Daily Tech Hacks</h2>
+                    <p>We test every tip before publishing. No fluff, just solutions that work.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">✅</div>
+                        <h3>Tested & Verified</h3>
+                        <p>Every hack is tested on real devices before publication.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔄</div>
+                        <h3>Always Updated</h3>
+                        <p>Guides are refreshed for 2025 with the latest methods.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🎓</div>
+                        <h3>Beginner Friendly</h3>
+                        <p>Clear steps anyone can follow, no tech expertise needed.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💰</div>
+                        <h3>Free Solutions</h3>
+                        <p>Most hacks use free tools and built-in features.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-columns">
-                <div class="footer-column">
-                    <h3>Daily Tech Hacks</h3>
-                    <p>Practical technology education focused on solving real-world problems with everyday devices.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>⚡ Daily Tech Hacks</h3>
+                    <p>Your trusted source for practical tech tips and solutions. Making technology work better for everyone since 2020.</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#courses">Courses</a></li>
-                        <li><a href="#approach">Our Approach</a></li>
-                        <li><a href="#calendar">Course Calendar</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hacks.html">All Hacks</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
+                <div class="footer-links">
+                    <h4>Popular Hacks</h4>
                     <ul>
-                        <li><a href="#">Free Tech Guides</a></li>
-                        <li><a href="#">Tech Glossary</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="hacks/extend-phone-battery-life.html">Extend Battery Life</a></li>
+                        <li><a href="hacks/speed-up-slow-windows-computer.html">Speed Up PC</a></li>
+                        <li><a href="hacks/boost-wifi-signal-strength.html">Boost Wi-Fi</a></li>
+                        <li><a href="hacks/keyboard-shortcuts-productivity.html">Keyboard Shortcuts</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Legal</h3>
+                <div class="footer-links">
+                    <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="sitemap.xml">Sitemap</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/main.js" defer></script>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Daily Tech Hacks",
-        "description": "Practical technology education focused on solving real-world problems with everyday devices.",
-        "url": "https://dailytechhacks.com",
-        "sameAs": [
-            "https://facebook.com/dailytechhacks",
-            "https://twitter.com/dailytechhacks",
-            "https://instagram.com/dailytechhacks",
-            "https://youtube.com/dailytechhacks"
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Tech Avenue",
-            "addressLocality": "Digital City",
-            "addressRegion": "TC",
-            "postalCode": "12345",
-            "addressCountry": "US"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-555-123-4567",
-            "contactType": "customer service"
-        },
-        "offers": {
-            "@type": "Offer",
-            "name": "Technology Education Courses",
-            "description": "Practical problem-solution focused technology education for iPhone, iPad, Mac, PC, and Smart Home devices"
-        }
-    }
-    </script>
 </body>
 </html>
