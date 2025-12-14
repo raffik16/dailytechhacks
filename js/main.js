@@ -61,38 +61,95 @@ function initializeHeaderScroll() {
 }
 
 /**
+ * IPQS Email Validation (via serverless API)
+ */
+async function validateEmailWithIPQS(email) {
+    try {
+        const response = await fetch('/api/validate-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        // If validation fails, allow submission (fail open)
+        console.error('Email validation error:', error);
+        return { valid: true, message: null };
+    }
+}
+
+/**
  * Newsletter form handling
  */
 function initializeNewsletterForm() {
     const newsletterForms = document.querySelectorAll('.newsletter-form');
 
     newsletterForms.forEach(form => {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const emailInput = form.querySelector('input[type="email"]');
             const email = emailInput.value.trim();
+            const submitBtn = form.querySelector('button[type="submit"]');
 
             if (!email || !isValidEmail(email)) {
                 showMessage(form, 'Please enter a valid email address', 'error');
                 return;
             }
 
-            // Simulate subscription
-            showMessage(form, 'Thanks for subscribing! Check your inbox for confirmation.', 'success');
-            emailInput.value = '';
+            // Disable button during validation
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Validating...';
+
+            // IPQS email validation
+            const ipqsResult = await validateEmailWithIPQS(email);
+            if (!ipqsResult.valid) {
+                showMessage(form, ipqsResult.message, 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                return;
+            }
+
+            submitBtn.textContent = 'Subscribing...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showMessage(form, 'Thanks for subscribing! Check your inbox for confirmation.', 'success');
+                    emailInput.value = '';
+                } else {
+                    showMessage(form, 'Oops! Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showMessage(form, 'Oops! Something went wrong. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
     });
 
     // Contact form
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const name = document.getElementById('name')?.value.trim();
             const email = document.getElementById('email')?.value.trim();
             const message = document.getElementById('message')?.value.trim();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
 
             if (!name || !email || !message) {
                 showMessage(contactForm, 'Please fill in all required fields', 'error');
@@ -104,8 +161,43 @@ function initializeNewsletterForm() {
                 return;
             }
 
-            showMessage(contactForm, 'Message sent successfully! We\'ll get back to you soon.', 'success');
-            contactForm.reset();
+            // Disable button during validation
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Validating...';
+
+            // IPQS email validation
+            const ipqsResult = await validateEmailWithIPQS(email);
+            if (!ipqsResult.valid) {
+                showMessage(contactForm, ipqsResult.message, 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                return;
+            }
+
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showMessage(contactForm, 'Message sent successfully! We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    showMessage(contactForm, 'Oops! Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showMessage(contactForm, 'Oops! Something went wrong. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
     }
 }
