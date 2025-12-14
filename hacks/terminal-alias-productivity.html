@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Supercharge your terminal with custom aliases. Create shortcuts for daily commands, stack 20+ aliases in your bashrc/zshrc, and save hours of typing.">
+    <meta name="keywords" content="terminal aliases, bashrc aliases, zshrc, command line shortcuts, Linux productivity, Mac terminal, bash tips, shell aliases">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>Terminal Alias Overload: 20+ Shortcuts for Daily Commands | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/terminal-alias-productivity.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">Terminal Aliases</span>
+                </div>
+                <span class="hack-category">Computer</span>
+                <h1>Terminal Alias Overload: 20+ Shortcuts to Save Hours of Typing</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>💻 Linux, Mac, WSL</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>Every time you type <code>git commit -m</code>, <code>docker-compose up</code>, or <code>cd ~/Projects/my-app</code>, you're wasting keystrokes. Terminal aliases let you create shortcuts for any command, turning <code>gcm</code> into a full git commit or <code>dcu</code> into docker-compose up.</p>
+
+                    <p>Power users stack 20+ aliases and save hours per week. Here's how to build your own alias library.</p>
+
+                    <h2 id="setup">Setting Up Aliases</h2>
+
+                    <h3>Find Your Shell Config File</h3>
+                    <ul>
+                        <li><strong>Bash (Linux default):</strong> <code>~/.bashrc</code></li>
+                        <li><strong>Zsh (Mac default since Catalina):</strong> <code>~/.zshrc</code></li>
+                        <li><strong>Fish:</strong> <code>~/.config/fish/config.fish</code></li>
+                    </ul>
+
+                    <h3>Add Your First Alias</h3>
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Open Config File</h3>
+                            <p><code>nano ~/.zshrc</code> or <code>nano ~/.bashrc</code></p>
+                        </li>
+                        <li>
+                            <h3>Add Alias Line</h3>
+                            <p>Add: <code>alias ll="ls -la"</code></p>
+                        </li>
+                        <li>
+                            <h3>Save and Reload</h3>
+                            <p>Save (Ctrl+X, Y, Enter in nano), then run: <code>source ~/.zshrc</code></p>
+                        </li>
+                        <li>
+                            <h3>Test It</h3>
+                            <p>Type <code>ll</code> and watch the magic.</p>
+                        </li>
+                    </ol>
+
+                    <h2 id="git">Essential Git Aliases</h2>
+
+                    <pre><code># Git shortcuts
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gl="git pull"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gb="git branch"
+alias gbd="git branch -d"
+alias gm="git merge"
+alias gr="git rebase"
+alias gri="git rebase -i"
+alias glog="git log --oneline --graph --decorate"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gst="git stash"
+alias gstp="git stash pop"</code></pre>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Git Has Built-in Aliases</h4>
+                        <p>You can also configure aliases in git itself: <code>git config --global alias.co checkout</code>. These work as <code>git co</code> rather than just <code>gco</code>.</p>
+                    </div>
+
+                    <h2 id="system">System & Navigation Aliases</h2>
+
+                    <pre><code># Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ~="cd ~"
+alias -- -="cd -"  # Go to previous directory
+
+# Listing
+alias ll="ls -la"
+alias la="ls -A"
+alias l="ls -CF"
+alias lt="ls -ltr"  # Sort by time, newest last
+
+# System
+alias update="sudo apt update && sudo apt upgrade"  # Debian/Ubuntu
+alias update="brew update && brew upgrade"  # Mac with Homebrew
+alias cls="clear"
+alias h="history"
+alias hg="history | grep"  # Search history
+
+# Disk usage
+alias df="df -h"
+alias du="du -h"
+alias duf="du -sh *"  # Size of items in current dir
+
+# Process management
+alias psg="ps aux | grep"
+alias kill9="kill -9"</code></pre>
+
+                    <h2 id="dev">Development Aliases</h2>
+
+                    <pre><code># Node/NPM
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nr="npm run"
+alias nrs="npm run start"
+alias nrd="npm run dev"
+alias nrb="npm run build"
+alias nrt="npm run test"
+
+# Yarn
+alias yi="yarn install"
+alias ya="yarn add"
+alias yad="yarn add --dev"
+alias yr="yarn run"
+
+# Python
+alias py="python3"
+alias pip="pip3"
+alias venv="python3 -m venv venv"
+alias activate="source venv/bin/activate"
+alias pipr="pip install -r requirements.txt"
+
+# Docker
+alias d="docker"
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
+alias dcd="docker-compose down"
+alias dcl="docker-compose logs"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dimg="docker images"
+alias drm="docker rm"
+alias drmi="docker rmi"</code></pre>
+
+                    <h2 id="project">Project Navigation Aliases</h2>
+
+                    <pre><code># Quick project access
+alias proj="cd ~/Projects"
+alias work="cd ~/Projects/work"
+alias personal="cd ~/Projects/personal"
+
+# Specific project shortcuts
+alias myapp="cd ~/Projects/my-app && code ."
+alias api="cd ~/Projects/api-server && code ."
+alias docs="cd ~/Projects/documentation"
+
+# Open in editor
+alias c="code ."  # VS Code
+alias v="vim"
+alias n="nvim"</code></pre>
+
+                    <h2 id="functions">Alias Functions (For Complex Commands)</h2>
+
+                    <p>When you need arguments or complex logic, use functions instead of aliases:</p>
+
+                    <pre><code># Make directory and cd into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Git commit with message
+gcmsg() {
+    git commit -m "$*"
+}
+
+# Find file by name
+ff() {
+    find . -name "*$1*"
+}
+
+# Create and activate Python venv
+mkvenv() {
+    python3 -m venv "${1:-venv}" && source "${1:-venv}/bin/activate"
+}
+
+# Kill process by port
+killport() {
+    lsof -i :"$1" | awk 'NR!=1 {print $2}' | xargs kill -9
+}
+
+# Git clone and cd
+gclone() {
+    git clone "$1" && cd "$(basename "$1" .git)"
+}</code></pre>
+
+                    <h2 id="tips">Organization Tips</h2>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Create a Separate Aliases File</h3>
+                            <p>Keep aliases in <code>~/.aliases</code> and source it from your shell config: <code>source ~/.aliases</code>. This keeps your config clean.</p>
+                        </li>
+                        <li>
+                            <h3>Group by Category</h3>
+                            <p>Use comments to organize: <code># Git aliases</code>, <code># Docker aliases</code>, etc.</p>
+                        </li>
+                        <li>
+                            <h3>Use Consistent Naming</h3>
+                            <p>Start git aliases with 'g', docker with 'd', npm with 'n'. This makes them memorable.</p>
+                        </li>
+                        <li>
+                            <h3>Document Complex Aliases</h3>
+                            <p>Add comments explaining what non-obvious aliases do.</p>
+                        </li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Avoid Overriding System Commands</h4>
+                        <p>Don't alias common command names like <code>ls</code>, <code>cd</code>, or <code>rm</code> to something completely different. It causes confusion when working on other systems.</p>
+                    </div>
+
+                    <h2 id="starter">Starter Alias Kit</h2>
+
+                    <p>Copy this to your <code>~/.aliases</code> file to get started:</p>
+
+                    <pre><code># Essential aliases - copy to ~/.aliases
+# Then add "source ~/.aliases" to your ~/.zshrc or ~/.bashrc
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ll="ls -la"
+alias proj="cd ~/Projects"
+
+# Git
+alias gs="git status"
+alias gaa="git add --all"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gl="git pull"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias glog="git log --oneline --graph"
+
+# Development
+alias nr="npm run"
+alias nrd="npm run dev"
+alias c="code ."
+
+# System
+alias update="sudo apt update && sudo apt upgrade"
+alias cls="clear"
+alias hg="history | grep"</code></pre>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>Start with 5-10 aliases for commands you use daily, then add more as you notice repetitive typing. Within a month, you'll have a personalized command toolkit that makes your terminal feel like a superpower.</p>
+
+                    <p>The best aliases are the ones you'll actually remember and use. Keep them short, intuitive, and relevant to your workflow.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#setup">Setup</a></li>
+                            <li><a href="#git">Git Aliases</a></li>
+                            <li><a href="#system">System Aliases</a></li>
+                            <li><a href="#dev">Development Aliases</a></li>
+                            <li><a href="#project">Project Navigation</a></li>
+                            <li><a href="#functions">Alias Functions</a></li>
+                            <li><a href="#tips">Organization Tips</a></li>
+                            <li><a href="#starter">Starter Kit</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

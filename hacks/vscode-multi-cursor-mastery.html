@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master VS Code multi-cursor editing to refactor code in seconds. Learn Alt+Click, Ctrl+D, and advanced techniques to edit 50+ lines simultaneously.">
+    <meta name="keywords" content="VS Code multi cursor, VS Code tips, code refactoring, VS Code shortcuts, multiple cursors, VS Code productivity, code editing tricks">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>VS Code Multi-Cursor Mastery: Edit 50 Lines in Seconds | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/vscode-multi-cursor-mastery.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">VS Code Multi-Cursor</span>
+                </div>
+                <span class="hack-category">Productivity</span>
+                <h1>VS Code Multi-Cursor Mastery: Refactor 50 Lines in Seconds</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 7 min read</span>
+                    <span>💻 Windows, Mac, Linux</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>One of VS Code's most powerful features is multi-cursor editing—the ability to place cursors at multiple locations and type everywhere at once. What takes minutes with find-and-replace can take seconds with multi-cursor, and unlike regex, you can see exactly what you're changing in real time.</p>
+
+                    <p>Once you master this, you'll never go back to editing one line at a time. Here's everything you need to know about <strong>multi-cursor editing in VS Code</strong>.</p>
+
+                    <h2 id="basics">Basic Multi-Cursor Shortcuts</h2>
+
+                    <h3>Adding Cursors Manually</h3>
+                    <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                        <tr style="background: var(--dark-700);">
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Action</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Windows/Linux</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Mac</th>
+                        </tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Add cursor at click position</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Alt + Click</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Option + Click</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Add cursor above</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + Alt + Up</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + Option + Up</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Add cursor below</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + Alt + Down</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + Option + Down</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Undo last cursor</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + U</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + U</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Exit multi-cursor mode</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Escape</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Escape</code></td></tr>
+                    </table>
+
+                    <h2 id="select-occurrences">Selecting Occurrences (The Power Move)</h2>
+
+                    <p>This is the most commonly used multi-cursor technique:</p>
+
+                    <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                        <tr style="background: var(--dark-700);">
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Action</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Windows/Linux</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Mac</th>
+                        </tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Select next occurrence</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + D</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + D</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Skip occurrence</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + K, Ctrl + D</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + K, Cmd + D</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Select ALL occurrences</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl + Shift + L</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd + Shift + L</code></td></tr>
+                    </table>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Using Ctrl+D Workflow</h3>
+                            <p>Select a word or variable name. Press <code>Ctrl+D</code> repeatedly to add the next occurrence to your selection. Each press adds another cursor. When you have all the ones you want, just start typing—all cursors type together.</p>
+                        </li>
+                        <li>
+                            <h3>Select All at Once</h3>
+                            <p>If you want to rename a variable everywhere in a file, select it and press <code>Ctrl+Shift+L</code>. Instant cursors at every occurrence. Type the new name, and you're done.</p>
+                        </li>
+                    </ol>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Case Sensitivity</h4>
+                        <p>Ctrl+D respects case by default. If you want case-insensitive matching, press <code>Ctrl+F</code> to open find, toggle case sensitivity off (Alt+C), then use <code>Ctrl+Shift+L</code> to select all matches.</p>
+                    </div>
+
+                    <h2 id="column-select">Column/Box Selection</h2>
+
+                    <p>Perfect for editing aligned data like CSV, JSON, or formatted code:</p>
+
+                    <ul>
+                        <li><strong>Windows/Linux:</strong> <code>Shift + Alt + Drag</code></li>
+                        <li><strong>Mac:</strong> <code>Shift + Option + Drag</code></li>
+                    </ul>
+
+                    <p>This creates a rectangular selection, placing cursors at the start of each line in the selection. Great for:</p>
+
+                    <ul>
+                        <li>Adding prefixes to multiple lines</li>
+                        <li>Removing columns of data</li>
+                        <li>Editing aligned object keys</li>
+                    </ul>
+
+                    <h2 id="practical">Practical Examples</h2>
+
+                    <h3>Example 1: Rename a Variable</h3>
+                    <pre><code>// Before
+const userName = "John";
+console.log(userName);
+return userName.toUpperCase();
+
+// Select 'userName', press Ctrl+Shift+L, type 'displayName'
+// After
+const displayName = "John";
+console.log(displayName);
+return displayName.toUpperCase();</code></pre>
+
+                    <h3>Example 2: Add Quotes to Multiple Lines</h3>
+                    <pre><code>// Before
+apple
+banana
+cherry
+
+// Put cursor at start of "apple", Ctrl+Alt+Down twice
+// Type quote, End key, type quote
+// After
+"apple"
+"banana"
+"cherry"</code></pre>
+
+                    <h3>Example 3: Convert Object Keys</h3>
+                    <pre><code>// Before
+{
+  first_name: "John",
+  last_name: "Doe",
+  phone_number: "555-1234"
+}
+
+// Select first '_', Ctrl+D to get all underscores
+// Delete underscore, type nothing (or capitalize next letter)
+// After (with some adjustment)
+{
+  firstName: "John",
+  lastName: "Doe",
+  phoneNumber: "555-1234"
+}</code></pre>
+
+                    <h2 id="advanced">Advanced Techniques</h2>
+
+                    <h3>Add Cursors to Line Ends</h3>
+                    <ol>
+                        <li>Select multiple lines</li>
+                        <li>Press <code>Shift + Alt + I</code> (Windows) or <code>Shift + Option + I</code> (Mac)</li>
+                        <li>Cursors appear at the end of every selected line</li>
+                    </ol>
+
+                    <h3>Combine with Find & Replace</h3>
+                    <ul>
+                        <li>Use regex find to locate patterns</li>
+                        <li>Press <code>Ctrl+Shift+L</code> to select all matches</li>
+                        <li>Make complex edits that regex alone can't handle</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <h4>⚠️ When NOT to Use Multi-Cursor</h4>
+                        <p>For simple text replacements across many files, use global find-and-replace instead. Multi-cursor is best for complex edits within a single file where you need visual feedback.</p>
+                    </div>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>Multi-cursor editing is one of those features that feels like cheating once you master it. Start with <code>Ctrl+D</code> for selecting occurrences—it's the most versatile and commonly used technique. Then gradually add <code>Alt+Click</code> and column selection to your toolkit.</p>
+
+                    <p>The time you invest in learning these shortcuts will pay back thousands of times over in your coding career.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#basics">Basic Shortcuts</a></li>
+                            <li><a href="#select-occurrences">Select Occurrences</a></li>
+                            <li><a href="#column-select">Column Selection</a></li>
+                            <li><a href="#practical">Practical Examples</a></li>
+                            <li><a href="#advanced">Advanced Techniques</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Python list comprehensions and itertools for 5-10x faster data processing. Replace slow loops with elegant one-liners that run faster.">
+    <meta name="keywords" content="Python list comprehensions, itertools, Python performance, Python tips, data processing, Python one-liners, fast Python code">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>Python List Comprehensions on Steroids: 5-10x Faster Code | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/python-list-comprehensions.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">Python List Comprehensions</span>
+                </div>
+                <span class="hack-category">Productivity</span>
+                <h1>Python List Comprehensions on Steroids: Write 5-10x Faster Code</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 9 min read</span>
+                    <span>🐍 Python 3.x</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>List comprehensions are Python's secret weapon for data processing. They're not just syntactic sugar—they're genuinely faster than equivalent for loops, often by 2-5x. Combined with itertools, you can process millions of items elegantly and efficiently.</p>
+
+                    <p>This is the difference between Python code that crawls and Python code that flies.</p>
+
+                    <h2 id="basics">List Comprehension Basics</h2>
+
+                    <h3>The Pattern</h3>
+                    <pre><code># Basic pattern
+[expression for item in iterable]
+
+# With condition
+[expression for item in iterable if condition]
+
+# With transformation
+[transform(item) for item in iterable]</code></pre>
+
+                    <h3>Loop vs Comprehension</h3>
+                    <pre><code># Slow: Traditional loop
+squares = []
+for x in range(1000):
+    squares.append(x ** 2)
+
+# Fast: List comprehension (2-5x faster)
+squares = [x ** 2 for x in range(1000)]</code></pre>
+
+                    <div class="tip-box">
+                        <h4>💡 Why Comprehensions Are Faster</h4>
+                        <p>List comprehensions are optimized at the bytecode level. They avoid repeated method lookups (<code>.append()</code>) and run in a tighter loop. The speed difference is real, not just theoretical.</p>
+                    </div>
+
+                    <h2 id="patterns">Common Patterns</h2>
+
+                    <h3>Filtering</h3>
+                    <pre><code># Get even numbers
+evens = [x for x in range(100) if x % 2 == 0]
+
+# Filter by condition
+adults = [p for p in people if p.age >= 18]
+
+# Multiple conditions
+results = [x for x in data if x > 0 and x < 100]</code></pre>
+
+                    <h3>Transforming</h3>
+                    <pre><code># Uppercase all strings
+upper = [s.upper() for s in strings]
+
+# Extract field from objects
+names = [user.name for user in users]
+
+# Apply function
+processed = [process(item) for item in items]</code></pre>
+
+                    <h3>Nested Loops (Flattening)</h3>
+                    <pre><code># Flatten 2D list
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flat = [num for row in matrix for num in row]
+# Result: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# All combinations
+pairs = [(x, y) for x in [1, 2, 3] for y in ['a', 'b', 'c']]</code></pre>
+
+                    <h2 id="dict-set">Dict and Set Comprehensions</h2>
+
+                    <h3>Dictionary Comprehensions</h3>
+                    <pre><code># Create dict from lists
+names = ['a', 'b', 'c']
+values = [1, 2, 3]
+d = {k: v for k, v in zip(names, values)}
+
+# Transform dict
+d = {k: v * 2 for k, v in original.items()}
+
+# Filter dict
+filtered = {k: v for k, v in d.items() if v > 10}</code></pre>
+
+                    <h3>Set Comprehensions</h3>
+                    <pre><code># Unique values with transformation
+unique_lengths = {len(word) for word in words}
+
+# Unique filtered values
+unique_even = {x for x in numbers if x % 2 == 0}</code></pre>
+
+                    <h2 id="itertools">Itertools Power-Ups</h2>
+
+                    <p>For complex operations, itertools provides optimized building blocks:</p>
+
+                    <pre><code>from itertools import chain, combinations, permutations, groupby, islice</code></pre>
+
+                    <h3>chain - Flatten Iterables</h3>
+                    <pre><code># Combine multiple iterables
+from itertools import chain
+combined = list(chain([1, 2], [3, 4], [5, 6]))
+# [1, 2, 3, 4, 5, 6]</code></pre>
+
+                    <h3>combinations and permutations</h3>
+                    <pre><code># All pairs (unordered)
+from itertools import combinations
+pairs = list(combinations([1, 2, 3], 2))
+# [(1, 2), (1, 3), (2, 3)]
+
+# All arrangements (ordered)
+from itertools import permutations
+perms = list(permutations([1, 2, 3], 2))
+# [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]</code></pre>
+
+                    <h3>groupby - Group Consecutive Items</h3>
+                    <pre><code>from itertools import groupby
+data = [('a', 1), ('a', 2), ('b', 3), ('b', 4)]
+grouped = {k: list(v) for k, v in groupby(data, key=lambda x: x[0])}
+# {'a': [('a', 1), ('a', 2)], 'b': [('b', 3), ('b', 4)]}</code></pre>
+
+                    <h3>islice - Slice Any Iterator</h3>
+                    <pre><code>from itertools import islice
+# First 10 items of any iterator
+first_ten = list(islice(huge_generator, 10))</code></pre>
+
+                    <h2 id="generator">Generator Expressions (Memory Efficient)</h2>
+
+                    <p>For large datasets, use generator expressions instead of list comprehensions:</p>
+
+                    <pre><code># List comprehension: creates entire list in memory
+squares = [x**2 for x in range(1000000)]  # Uses ~8MB
+
+# Generator expression: yields one at a time
+squares = (x**2 for x in range(1000000))  # Uses ~100 bytes
+
+# Use generators with functions that accept iterables
+sum_squares = sum(x**2 for x in range(1000000))  # Memory efficient</code></pre>
+
+                    <div class="warning-box">
+                        <h4>⚠️ When NOT to Use Comprehensions</h4>
+                        <p>Don't force complex logic into comprehensions. If you need multiple statements, exception handling, or the comprehension is hard to read, use a regular loop. Readability trumps cleverness.</p>
+                    </div>
+
+                    <h2 id="real-world">Real-World Examples</h2>
+
+                    <h3>Data Cleaning</h3>
+                    <pre><code># Clean and filter CSV data
+clean_rows = [
+    {k: v.strip() for k, v in row.items()}
+    for row in csv_data
+    if row.get('email') and '@' in row['email']
+]</code></pre>
+
+                    <h3>API Response Processing</h3>
+                    <pre><code># Extract specific fields from API response
+users = [
+    {'id': u['id'], 'name': u['profile']['name']}
+    for u in api_response['users']
+    if u.get('active', False)
+]</code></pre>
+
+                    <h3>File Processing</h3>
+                    <pre><code># Read and process file lines
+with open('data.txt') as f:
+    processed = [line.strip().upper() for line in f if line.strip()]</code></pre>
+
+                    <h2 id="performance">Performance Comparison</h2>
+
+                    <pre><code>import timeit
+
+# Test: square numbers 0-9999
+# Loop: ~1.2ms
+# Comprehension: ~0.7ms
+# map(): ~0.6ms
+
+# For simple operations, all are fine
+# For complex operations or large data, comprehensions shine</code></pre>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>List comprehensions and itertools are core Python skills that separate beginners from proficient developers. They're not just about writing less code—they express intent more clearly and run faster.</p>
+
+                    <p>Start by converting your simple for loops to comprehensions. Once comfortable, explore itertools for more complex data transformations. Your code will be shorter, faster, and more Pythonic.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#basics">Basics</a></li>
+                            <li><a href="#patterns">Common Patterns</a></li>
+                            <li><a href="#dict-set">Dict & Set</a></li>
+                            <li><a href="#itertools">Itertools</a></li>
+                            <li><a href="#generator">Generators</a></li>
+                            <li><a href="#real-world">Real-World Examples</a></li>
+                            <li><a href="#performance">Performance</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
