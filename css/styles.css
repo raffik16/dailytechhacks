@@ -636,6 +636,11 @@ section {
     background: radial-gradient(circle at 30% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
 }
 
+.hack-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
 .breadcrumbs {
     display: flex;
     align-items: center;
