@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use JavaScript optional chaining (?.) to avoid null/undefined crashes. Save debugging hours with this simple syntax for safe property access.">
+    <meta name="keywords" content="JavaScript optional chaining, nullish coalescing, JS tips, null undefined errors, JavaScript safety, modern JavaScript">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>JavaScript Optional Chaining: Stop Null/Undefined Crashes | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/javascript-optional-chaining.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">JavaScript Optional Chaining</span>
+                </div>
+                <span class="hack-category">Productivity</span>
+                <h1>JavaScript Optional Chaining (?.): Never Crash on Null Again</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 6 min read</span>
+                    <span>💻 JavaScript/TypeScript</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>"Cannot read property 'x' of undefined"—every JavaScript developer has seen this error hundreds of times. Optional chaining (<code>?.</code>) eliminates this entire class of bugs with a simple syntax change. It's available in all modern browsers and Node.js, yet many developers don't use it consistently.</p>
+
+                    <p>Start using <code>?.</code> everywhere and watch your runtime errors drop dramatically.</p>
+
+                    <h2 id="problem">The Problem</h2>
+
+                    <pre><code>// This crashes if user or address is undefined
+const street = user.address.street;
+
+// Traditional defensive code is verbose
+const street = user && user.address && user.address.street;
+
+// Or with ternary (even worse)
+const street = user ? (user.address ? user.address.street : undefined) : undefined;</code></pre>
+
+                    <h2 id="solution">The Solution: Optional Chaining</h2>
+
+                    <pre><code>// Clean and safe
+const street = user?.address?.street;
+
+// Returns undefined if any part of the chain is null/undefined
+// Never throws an error</code></pre>
+
+                    <div class="tip-box">
+                        <h4>💡 How It Works</h4>
+                        <p><code>?.</code> checks if the value before it is <code>null</code> or <code>undefined</code>. If so, it short-circuits and returns <code>undefined</code> instead of trying to access the property. The entire remaining chain is skipped.</p>
+                    </div>
+
+                    <h2 id="syntax">Syntax Variations</h2>
+
+                    <h3>Property Access</h3>
+                    <pre><code>// Object properties
+const name = user?.profile?.name;
+
+// Nested objects
+const city = response?.data?.user?.address?.city;</code></pre>
+
+                    <h3>Array Access</h3>
+                    <pre><code>// Array elements
+const firstItem = arr?.[0];
+const nested = data?.items?.[0]?.name;</code></pre>
+
+                    <h3>Method Calls</h3>
+                    <pre><code>// Safe method calls
+const result = obj?.method?.();
+
+// Callbacks
+props.onClick?.();
+
+// With arguments
+user?.sendEmail?.("Hello");</code></pre>
+
+                    <h3>Dynamic Properties</h3>
+                    <pre><code>// Bracket notation
+const value = obj?.[dynamicKey];
+const prop = obj?.[computeKey()];</code></pre>
+
+                    <h2 id="nullish">Combine with Nullish Coalescing (??)</h2>
+
+                    <p>Optional chaining returns <code>undefined</code> when short-circuiting. Use <code>??</code> to provide default values:</p>
+
+                    <pre><code>// Default value if any part is null/undefined
+const name = user?.profile?.name ?? "Anonymous";
+
+// Default for array
+const first = items?.[0] ?? "No items";
+
+// Default for method result
+const count = obj?.getCount?.() ?? 0;</code></pre>
+
+                    <h3>?? vs ||</h3>
+                    <pre><code>// || treats 0, "", and false as falsy
+const count = data.count || 10;  // Returns 10 if count is 0
+
+// ?? only triggers on null/undefined
+const count = data.count ?? 10;  // Returns 0 if count is 0</code></pre>
+
+                    <h2 id="patterns">Common Patterns</h2>
+
+                    <h3>API Response Handling</h3>
+                    <pre><code>// Safe API data extraction
+const users = response?.data?.users ?? [];
+const error = response?.error?.message ?? "Unknown error";</code></pre>
+
+                    <h3>React Props</h3>
+                    <pre><code>// Safe prop access
+const userName = props.user?.name;
+const handleClick = props.onClick?.bind(this);
+
+// In JSX
+{user?.profile?.avatar && <img src={user.profile.avatar} />}</code></pre>
+
+                    <h3>Event Handling</h3>
+                    <pre><code>// Safe event property access
+const value = event?.target?.value ?? "";
+const key = event?.key?.toLowerCase();</code></pre>
+
+                    <h3>Configuration Objects</h3>
+                    <pre><code>// Safe config access with defaults
+const timeout = config?.settings?.timeout ?? 5000;
+const debug = config?.flags?.debug ?? false;</code></pre>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Don't Overuse</h4>
+                        <p>Optional chaining shouldn't replace proper validation. If a value <em>should</em> exist, validate it explicitly and throw a meaningful error rather than silently returning undefined.</p>
+                    </div>
+
+                    <h2 id="typescript">TypeScript Integration</h2>
+
+                    <p>Optional chaining works perfectly with TypeScript and helps with type narrowing:</p>
+
+                    <pre><code>interface User {
+  profile?: {
+    name?: string;
+    email: string;
+  };
+}
+
+// TypeScript knows name might be undefined
+const name = user?.profile?.name;  // string | undefined
+
+// With default
+const name = user?.profile?.name ?? "Guest";  // string</code></pre>
+
+                    <h2 id="browser">Browser/Node Support</h2>
+
+                    <ul>
+                        <li><strong>Chrome:</strong> 80+</li>
+                        <li><strong>Firefox:</strong> 74+</li>
+                        <li><strong>Safari:</strong> 13.1+</li>
+                        <li><strong>Edge:</strong> 80+</li>
+                        <li><strong>Node.js:</strong> 14+</li>
+                    </ul>
+
+                    <p>For older environments, use Babel to transpile.</p>
+
+                    <h2 id="eslint">ESLint Rule</h2>
+
+                    <p>Enforce optional chaining in your codebase:</p>
+
+                    <pre><code>// .eslintrc
+{
+  "rules": {
+    "prefer-optional-chain": "error"
+  }
+}</code></pre>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>Optional chaining is one of those features that should become muscle memory. Every time you access a property that might not exist, use <code>?.</code>. Every time you need a default value, combine it with <code>??</code>.</p>
+
+                    <p>The small syntax change eliminates an entire category of runtime errors and makes your code more resilient to unexpected data shapes.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#problem">The Problem</a></li>
+                            <li><a href="#solution">The Solution</a></li>
+                            <li><a href="#syntax">Syntax Variations</a></li>
+                            <li><a href="#nullish">Nullish Coalescing</a></li>
+                            <li><a href="#patterns">Common Patterns</a></li>
+                            <li><a href="#typescript">TypeScript</a></li>
+                            <li><a href="#browser">Browser Support</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

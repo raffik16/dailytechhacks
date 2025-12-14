@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform GitHub Copilot from generic autocomplete to your personal coding clone with custom instructions. Set coding style, preferences, and project conventions.">
+    <meta name="keywords" content="GitHub Copilot, Copilot custom instructions, AI coding assistant, Copilot tips, coding productivity, AI programming, VS Code Copilot">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>GitHub Copilot Custom Instructions: Your Personal Coding Clone | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/github-copilot-custom-instructions.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">Copilot Custom Instructions</span>
+                </div>
+                <span class="hack-category">Productivity</span>
+                <h1>GitHub Copilot + Custom Instructions: Turn It Into Your Coding Clone</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>💻 VS Code, JetBrains</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>Out of the box, GitHub Copilot gives generic suggestions based on your current file context. But with custom instructions, you can train it to write code exactly the way YOU write code—using your preferred style, patterns, and project conventions.</p>
+
+                    <p>This turns Copilot from a helpful autocomplete into a <strong>true coding partner</strong> that understands your preferences.</p>
+
+                    <h2 id="setup">Setting Up Custom Instructions</h2>
+
+                    <h3>In VS Code</h3>
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Open Copilot Settings</h3>
+                            <p>Press <code>Ctrl+,</code> (or <code>Cmd+,</code> on Mac) to open Settings. Search for "Copilot".</p>
+                        </li>
+                        <li>
+                            <h3>Find Custom Instructions</h3>
+                            <p>Look for "GitHub Copilot: Custom Instructions" or similar. This may be under the Copilot Chat settings.</p>
+                        </li>
+                        <li>
+                            <h3>Add Your Instructions</h3>
+                            <p>Enter your coding preferences, style guidelines, and conventions. Copilot will follow these when generating suggestions.</p>
+                        </li>
+                    </ol>
+
+                    <h3>Using .github/copilot-instructions.md</h3>
+                    <p>For project-specific instructions, create a file at <code>.github/copilot-instructions.md</code> in your repository. Copilot will automatically read this file when working in that project.</p>
+
+                    <h2 id="examples">Example Custom Instructions</h2>
+
+                    <h3>JavaScript/TypeScript Developer</h3>
+                    <pre><code>- Always use functional programming style over OOP
+- Prefer const over let, never use var
+- Use arrow functions for callbacks
+- Always include TypeScript types, avoid 'any'
+- Use async/await over .then() chains
+- Prefer named exports over default exports
+- Include JSDoc comments for public functions
+- Use early returns to reduce nesting
+- Error messages should be user-friendly</code></pre>
+
+                    <h3>Python Developer</h3>
+                    <pre><code>- Follow PEP 8 style guidelines
+- Use type hints for all function parameters and returns
+- Prefer list comprehensions over map/filter when readable
+- Use f-strings for string formatting
+- Write docstrings in Google style format
+- Use pathlib instead of os.path
+- Prefer dataclasses for data containers
+- Handle exceptions with specific types, not bare except</code></pre>
+
+                    <h3>React Developer</h3>
+                    <pre><code>- Use functional components with hooks, never class components
+- Prefer custom hooks for reusable logic
+- Use TypeScript interfaces for props
+- Follow the component/styles/test file structure
+- Use React Query for data fetching
+- Avoid inline styles, use CSS modules or styled-components
+- Memoize expensive computations with useMemo
+- Always include PropTypes or TypeScript types</code></pre>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Be Specific About Your Stack</h4>
+                        <p>Include the specific libraries and frameworks you use: "Use Zod for validation", "Use Prisma for database queries", "Use TanStack Table for data grids". Copilot will generate code using those tools.</p>
+                    </div>
+
+                    <h2 id="project">Project-Specific Instructions</h2>
+
+                    <p>Create a <code>.github/copilot-instructions.md</code> file in your project root:</p>
+
+                    <pre><code># Project: E-Commerce Platform
+
+## Tech Stack
+- Next.js 14 with App Router
+- TypeScript strict mode
+- Prisma with PostgreSQL
+- TailwindCSS for styling
+- React Hook Form + Zod for forms
+
+## Coding Conventions
+- All API routes in /app/api following REST conventions
+- Server components by default, 'use client' only when needed
+- Use server actions for form submissions
+- Database queries only in server components/actions
+- Validate all user input with Zod schemas
+
+## File Naming
+- Components: PascalCase (ProductCard.tsx)
+- Hooks: camelCase with 'use' prefix (useCart.ts)
+- Utils: camelCase (formatCurrency.ts)
+- Types: PascalCase in types/ folder
+
+## Error Handling
+- Wrap database calls in try-catch
+- Return typed error objects, not thrown exceptions
+- Log errors to Sentry in production</code></pre>
+
+                    <h2 id="advanced">Advanced Instruction Patterns</h2>
+
+                    <h3>Security-First Instructions</h3>
+                    <pre><code>- Always sanitize user input before database queries
+- Use parameterized queries, never string concatenation
+- Validate authentication on every protected route
+- Never log sensitive data (passwords, tokens, PII)
+- Use environment variables for secrets
+- Implement rate limiting on public endpoints</code></pre>
+
+                    <h3>Performance Instructions</h3>
+                    <pre><code>- Lazy load components that aren't immediately visible
+- Use pagination for lists over 50 items
+- Memoize expensive calculations
+- Debounce user input handlers (300ms)
+- Use connection pooling for database
+- Implement caching for repeated queries</code></pre>
+
+                    <h3>Testing Instructions</h3>
+                    <pre><code>- Write unit tests for all utility functions
+- Use React Testing Library for component tests
+- Follow AAA pattern: Arrange, Act, Assert
+- Mock external dependencies
+- Test error states, not just happy paths
+- Include integration tests for critical flows</code></pre>
+
+                    <h2 id="workflow">Copilot Workflow Tips</h2>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Write Descriptive Function Names</h3>
+                            <p>Copilot uses your function name to understand intent. <code>calculateTotalWithTaxAndDiscount()</code> gets better suggestions than <code>calc()</code>.</p>
+                        </li>
+                        <li>
+                            <h3>Write Comments First</h3>
+                            <p>Type a comment describing what you want, then let Copilot generate the implementation. Example: <code>// Sort users by last login date, most recent first</code></p>
+                        </li>
+                        <li>
+                            <h3>Use Copilot Chat for Explanations</h3>
+                            <p>Highlight code and ask Copilot Chat to explain it, suggest improvements, or write tests for it.</p>
+                        </li>
+                        <li>
+                            <h3>Iterate on Suggestions</h3>
+                            <p>Press <code>Alt+]</code> to cycle through alternative suggestions. The first suggestion isn't always best.</p>
+                        </li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Always Review Generated Code</h4>
+                        <p>Copilot can generate code with bugs, security issues, or outdated patterns. Never blindly accept suggestions—review them like you would a junior developer's pull request.</p>
+                    </div>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>Custom instructions transform Copilot from a generic tool into your personalized coding assistant. Take 30 minutes to write thorough instructions for your projects, and you'll save hours of correcting generated code that doesn't match your style.</p>
+
+                    <p>The best custom instructions evolve over time—update them whenever you notice Copilot consistently generating code you have to fix.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#setup">Setup</a></li>
+                            <li><a href="#examples">Example Instructions</a></li>
+                            <li><a href="#project">Project-Specific</a></li>
+                            <li><a href="#advanced">Advanced Patterns</a></li>
+                            <li><a href="#workflow">Workflow Tips</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

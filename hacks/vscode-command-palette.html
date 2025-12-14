@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master VS Code's Command Palette (Ctrl+Shift+P) to run any command, setting, or extension without menus. Power users do 90% of navigation here.">
+    <meta name="keywords" content="VS Code command palette, VS Code shortcuts, VS Code productivity, Ctrl Shift P, VS Code tips, code editor efficiency">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>VS Code Command Palette: Control Everything with Ctrl+Shift+P | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/vscode-command-palette.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">VS Code Command Palette</span>
+                </div>
+                <span class="hack-category">Productivity</span>
+                <h1>VS Code Command Palette: Run Any Command Without Touching Menus</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 6 min read</span>
+                    <span>💻 Windows, Mac, Linux</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>VS Code's Command Palette is the fastest way to do almost anything in the editor. Instead of hunting through menus or remembering dozens of keyboard shortcuts, press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on Mac) and type what you want to do.</p>
+
+                    <p>Power users do 90% of their VS Code navigation here. Once you internalize this, you'll rarely touch the menus again.</p>
+
+                    <h2 id="basics">Opening the Command Palette</h2>
+
+                    <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                        <tr style="background: var(--dark-700);">
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Action</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Windows/Linux</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Mac</th>
+                        </tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Command Palette (all commands)</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+Shift+P</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd+Shift+P</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Quick Open (files)</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+P</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd+P</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Go to Symbol</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+Shift+O</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd+Shift+O</code></td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);">Go to Line</td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+G</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Cmd+G</code></td></tr>
+                    </table>
+
+                    <h2 id="prefixes">Quick Open Prefixes</h2>
+
+                    <p>From Quick Open (<code>Ctrl+P</code>), use these prefixes for different modes:</p>
+
+                    <ul>
+                        <li><code>></code> - Commands (same as Ctrl+Shift+P)</li>
+                        <li><code>@</code> - Symbols in current file</li>
+                        <li><code>@:</code> - Symbols grouped by category</li>
+                        <li><code>#</code> - Symbols in workspace</li>
+                        <li><code>:</code> - Go to line number</li>
+                        <li><code>?</code> - Show all prefix options</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Type Partial Matches</h4>
+                        <p>You don't need to type exact command names. "format doc" finds "Format Document," "tog term" finds "Toggle Terminal." The fuzzy matching is very forgiving.</p>
+                    </div>
+
+                    <h2 id="essential">Essential Commands to Know</h2>
+
+                    <h3>Editor Commands</h3>
+                    <ul>
+                        <li><strong>"Format Document"</strong> - Auto-format code according to your settings</li>
+                        <li><strong>"Transform to Uppercase/Lowercase"</strong> - Change text case</li>
+                        <li><strong>"Sort Lines Ascending/Descending"</strong> - Sort selected lines</li>
+                        <li><strong>"Toggle Word Wrap"</strong> - Wrap long lines</li>
+                        <li><strong>"Toggle Minimap"</strong> - Show/hide the code minimap</li>
+                        <li><strong>"Toggle Zen Mode"</strong> - Distraction-free editing</li>
+                    </ul>
+
+                    <h3>File/Workspace Commands</h3>
+                    <ul>
+                        <li><strong>"File: Save All"</strong> - Save all open files</li>
+                        <li><strong>"File: Close All"</strong> - Close all editors</li>
+                        <li><strong>"Preferences: Open Settings (JSON)"</strong> - Direct settings file access</li>
+                        <li><strong>"Reload Window"</strong> - Restart VS Code (fixes most issues)</li>
+                        <li><strong>"Developer: Reload Window"</strong> - Same as above</li>
+                    </ul>
+
+                    <h3>Navigation Commands</h3>
+                    <ul>
+                        <li><strong>"Go to Definition"</strong> - Jump to function/variable definition</li>
+                        <li><strong>"Go to References"</strong> - Find all usages</li>
+                        <li><strong>"Peek Definition"</strong> - View definition inline</li>
+                        <li><strong>"Go Back/Forward"</strong> - Navigate edit history</li>
+                    </ul>
+
+                    <h2 id="settings">Accessing Settings</h2>
+
+                    <p>The Command Palette is the fastest way to change settings:</p>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Open Settings UI</h3>
+                            <p>Type "settings" and select "Preferences: Open Settings (UI)"</p>
+                        </li>
+                        <li>
+                            <h3>Open Settings JSON</h3>
+                            <p>Type "settings json" for direct file editing</p>
+                        </li>
+                        <li>
+                            <h3>Search Specific Settings</h3>
+                            <p>Type the setting name directly: "font size," "tab size," "auto save"</p>
+                        </li>
+                    </ol>
+
+                    <h2 id="extensions">Extension Commands</h2>
+
+                    <p>Every extension adds commands to the palette. Common ones:</p>
+
+                    <ul>
+                        <li><strong>"GitLens: Toggle File Blame"</strong> - Show git blame in editor</li>
+                        <li><strong>"Prettier: Format Document"</strong> - Format with Prettier</li>
+                        <li><strong>"ESLint: Fix all auto-fixable Problems"</strong> - Auto-fix lint issues</li>
+                        <li><strong>"Live Server: Open with Live Server"</strong> - Start local server</li>
+                        <li><strong>"Remote-SSH: Connect to Host"</strong> - SSH into remote machine</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Extension Overload</h4>
+                        <p>Too many extensions slow down VS Code and clutter the Command Palette. Periodically review installed extensions and disable/uninstall unused ones via "Extensions: Show Installed Extensions."</p>
+                    </div>
+
+                    <h2 id="keybindings">Customizing Keybindings</h2>
+
+                    <p>For commands you use constantly, add custom keybindings:</p>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Open Keyboard Shortcuts</h3>
+                            <p>Type "keyboard shortcuts" in Command Palette</p>
+                        </li>
+                        <li>
+                            <h3>Search for Command</h3>
+                            <p>Find the command you want to bind</p>
+                        </li>
+                        <li>
+                            <h3>Add Binding</h3>
+                            <p>Click the + icon and press your desired key combination</p>
+                        </li>
+                    </ol>
+
+                    <h2 id="workflows">Power User Workflows</h2>
+
+                    <h3>Quick File Switching</h3>
+                    <pre><code>Ctrl+P → type filename → Enter
+// Even faster: Ctrl+Tab to cycle recent files</code></pre>
+
+                    <h3>Find and Replace Across Files</h3>
+                    <pre><code>Ctrl+Shift+P → "Replace in Files" → Enter</code></pre>
+
+                    <h3>Change Language Mode</h3>
+                    <pre><code>Ctrl+Shift+P → "Change Language Mode" → select language</code></pre>
+
+                    <h3>Compare Files</h3>
+                    <pre><code>Ctrl+Shift+P → "Compare Active File With..." → select file</code></pre>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>The Command Palette is VS Code's superpower. Instead of memorizing 100 shortcuts, remember one: <code>Ctrl+Shift+P</code>. Then type what you want to do. The fuzzy search finds it, you press Enter, and it's done.</p>
+
+                    <p>Start using it for everything—settings changes, formatting, git commands, extension features—and watch your editing speed increase dramatically.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#basics">Opening the Palette</a></li>
+                            <li><a href="#prefixes">Quick Open Prefixes</a></li>
+                            <li><a href="#essential">Essential Commands</a></li>
+                            <li><a href="#settings">Accessing Settings</a></li>
+                            <li><a href="#extensions">Extension Commands</a></li>
+                            <li><a href="#keybindings">Custom Keybindings</a></li>
+                            <li><a href="#workflows">Power Workflows</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
