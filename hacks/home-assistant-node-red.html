@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build complex smart home automations with Home Assistant and Node-RED. Visual flow editor for multi-condition logic, time-based triggers, and advanced scenarios.">
+    <meta name="keywords" content="Home Assistant, Node-RED, smart home automation, visual automation, smart home logic, home automation flows, IoT automation">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>Home Assistant + Node-RED: Insane Smart Home Automations | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/home-assistant-node-red.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">Home Assistant Node-RED</span>
+                </div>
+                <span class="hack-category">Computer</span>
+                <h1>Home Assistant + Node-RED: Build Insane Smart Home Automations</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 12 min read</span>
+                    <span>🏠 Smart Home</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>Home Assistant's built-in automations are good. Node-RED makes them extraordinary. With Node-RED's visual flow editor, you can create complex multi-condition automations that would be nightmare to write in YAML—chains of "if this AND that BUT NOT when X, THEN do A, B, and C with delays."</p>
+
+                    <p>This is how power users build truly intelligent smart homes.</p>
+
+                    <h2 id="what">What is Node-RED?</h2>
+
+                    <p>Node-RED is a visual programming tool where you connect "nodes" (triggers, conditions, actions) by dragging wires between them. It's like flowcharting, but the flowchart actually runs your home.</p>
+
+                    <p>Benefits over Home Assistant's native automations:</p>
+                    <ul>
+                        <li>Visual representation of complex logic</li>
+                        <li>Easier debugging (see exactly where flows break)</li>
+                        <li>More powerful conditional logic</li>
+                        <li>Function nodes for custom JavaScript logic</li>
+                        <li>Better handling of delays, loops, and sequences</li>
+                    </ul>
+
+                    <h2 id="install">Installing Node-RED in Home Assistant</h2>
+
+                    <ol class="steps-list">
+                        <li>
+                            <h3>Add the Add-on Repository</h3>
+                            <p>Go to Settings > Add-ons > Add-on Store. Click the three dots and select "Repositories." Add: <code>https://github.com/hassio-addons/repository</code></p>
+                        </li>
+                        <li>
+                            <h3>Install Node-RED</h3>
+                            <p>Search for "Node-RED" in the add-on store and install it. Enable "Show in sidebar" for easy access.</p>
+                        </li>
+                        <li>
+                            <h3>Configure Credentials</h3>
+                            <p>In the add-on configuration, set your Home Assistant credentials (or use a long-lived access token).</p>
+                        </li>
+                        <li>
+                            <h3>Start and Open</h3>
+                            <p>Start the add-on and click "Open Web UI" to access the Node-RED editor.</p>
+                        </li>
+                    </ol>
+
+                    <h2 id="basics">Node-RED Basics</h2>
+
+                    <h3>Key Node Types</h3>
+                    <ul>
+                        <li><strong>Events: state (trigger):</strong> Fires when a Home Assistant entity changes state</li>
+                        <li><strong>Current state:</strong> Checks the current state of an entity</li>
+                        <li><strong>Call service:</strong> Calls a Home Assistant service (turn on lights, send notifications, etc.)</li>
+                        <li><strong>Switch:</strong> Routes messages based on conditions</li>
+                        <li><strong>Delay:</strong> Adds a time delay between actions</li>
+                        <li><strong>Function:</strong> Custom JavaScript for complex logic</li>
+                    </ul>
+
+                    <h3>Basic Flow Structure</h3>
+                    <pre><code>[Trigger] → [Condition] → [Action]
+
+Example:
+[Motion Detected] → [Is it dark?] → [Turn on lights]</code></pre>
+
+                    <h2 id="examples">Automation Examples</h2>
+
+                    <h3>Example 1: Smart Kitchen Light</h3>
+                    <p>"If motion in kitchen AND time is after sunset AND fridge door has been open for 5 minutes, send notification 'Close the fridge!'"</p>
+
+                    <pre><code>Flow:
+[Motion sensor: state changed to 'on']
+    ↓
+[Current state: sun.sun = 'below_horizon'?] → Yes
+    ↓
+[Current state: fridge door = 'on'?] → Yes
+    ↓
+[Delay: 5 minutes]
+    ↓
+[Current state: fridge door still 'on'?] → Yes
+    ↓
+[Call service: notify.mobile_app "Close the fridge!"]</code></pre>
+
+                    <h3>Example 2: Morning Routine</h3>
+                    <p>"When alarm is dismissed, slowly brighten bedroom lights, start coffee maker, and read weather forecast."</p>
+
+                    <pre><code>Flow:
+[Phone alarm dismissed]
+    ↓
+[Call service: light.turn_on bedroom, brightness 10%]
+    ↓
+[Delay: 1 minute]
+    ↓
+[Call service: light.turn_on bedroom, brightness 50%]
+    ↓
+[Call service: switch.turn_on coffee_maker]
+    ↓
+[Get weather data] → [TTS: Read weather aloud]</code></pre>
+
+                    <h3>Example 3: Presence-Based HVAC</h3>
+                    <p>"If everyone leaves home, set thermostat to away mode. When first person returns, restore comfort settings—but only if we've been away for more than 30 minutes."</p>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Use Subflows</h4>
+                        <p>For repeated logic patterns, create subflows (reusable flow components). For example, a "notify all phones" subflow can be used across multiple automations without duplicating nodes.</p>
+                    </div>
+
+                    <h2 id="advanced">Advanced Techniques</h2>
+
+                    <h3>Function Nodes for Custom Logic</h3>
+                    <p>When visual nodes aren't enough, use JavaScript:</p>
+                    <pre><code>// Only proceed if entity has been in state for 10+ minutes
+const lastChanged = new Date(msg.data.old_state.last_changed);
+const now = new Date();
+const minutesInState = (now - lastChanged) / 60000;
+
+if (minutesInState >= 10) {
+    return msg;
+}
+return null;  // Don't continue flow</code></pre>
+
+                    <h3>Rate Limiting</h3>
+                    <p>Prevent notification spam with the "delay" node in rate-limit mode. Example: Only send one motion alert per 10 minutes.</p>
+
+                    <h3>Context Storage</h3>
+                    <p>Store values between flow runs using flow or global context:</p>
+                    <pre><code>// Store a value
+flow.set('lastMotionTime', Date.now());
+
+// Retrieve it later
+const lastMotion = flow.get('lastMotionTime');</code></pre>
+
+                    <h2 id="debugging">Debugging Flows</h2>
+
+                    <ul>
+                        <li><strong>Debug nodes:</strong> Add debug nodes to see what data is flowing through</li>
+                        <li><strong>Status indicators:</strong> Nodes show green/blue dots when triggered</li>
+                        <li><strong>Console:</strong> View errors and logs in the sidebar debug panel</li>
+                        <li><strong>Inject nodes:</strong> Manually trigger flows for testing</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Avoid Infinite Loops</h4>
+                        <p>Be careful with automations that trigger on state changes they cause. "When light turns on, set brightness" can loop forever if you're not careful. Use conditions to break potential loops.</p>
+                    </div>
+
+                    <h2 id="resources">Learning Resources</h2>
+
+                    <ul>
+                        <li><strong>Node-RED Documentation:</strong> Official docs cover all node types</li>
+                        <li><strong>Home Assistant Community:</strong> Node-RED subforum has example flows</li>
+                        <li><strong>YouTube:</strong> Search "Node-RED Home Assistant" for visual tutorials</li>
+                        <li><strong>Import flows:</strong> Community-shared flows can be imported directly</li>
+                    </ul>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>Node-RED transforms Home Assistant from a smart home platform into a truly programmable home. The visual interface makes complex logic accessible, and the debugging tools make troubleshooting far easier than traditional YAML automations.</p>
+
+                    <p>Start with one complex automation that frustrated you in native HA, rebuild it in Node-RED, and you'll quickly see why power users swear by this combination.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#what">What is Node-RED</a></li>
+                            <li><a href="#install">Installation</a></li>
+                            <li><a href="#basics">Basics</a></li>
+                            <li><a href="#examples">Examples</a></li>
+                            <li><a href="#advanced">Advanced Techniques</a></li>
+                            <li><a href="#debugging">Debugging</a></li>
+                            <li><a href="#resources">Resources</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

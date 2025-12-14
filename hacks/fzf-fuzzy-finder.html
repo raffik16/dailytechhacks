@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NT8SHKKZJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1NT8SHKKZJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master fzf fuzzy finder for lightning-fast terminal searches. Search command history, files, directories, and git branches in seconds.">
+    <meta name="keywords" content="fzf, fuzzy finder, terminal search, command line, bash history, file search, Linux tools, developer productivity">
+    <meta name="author" content="Daily Tech Hacks">
+    <meta name="robots" content="index, follow">
+    <title>fzf Fuzzy Finder: Find Anything in Terminal Instantly | Daily Tech Hacks</title>
+
+    <link rel="canonical" href="https://www.dailytechhacks.com/hacks/fzf-fuzzy-finder.html">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="hack-page">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="../index.html"><span class="logo-icon">⚡</span> Daily Tech Hacks</a></div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../hacks.html">All Hacks</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hack-hero">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a><span>/</span>
+                    <a href="../hacks.html">All Hacks</a><span>/</span>
+                    <span class="current">fzf Fuzzy Finder</span>
+                </div>
+                <span class="hack-category">Computer</span>
+                <h1>fzf Fuzzy Finder: Find Files, Commands, and Anything in Seconds</h1>
+                <div class="hack-meta-info">
+                    <span>📅 Updated: December 2025</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>💻 Linux, Mac, WSL</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-content">
+            <div class="container">
+                <article class="article-main">
+                    <p>fzf is a command-line fuzzy finder that transforms how you interact with your terminal. Instead of remembering exact file names or scrolling through command history, just type a few characters and fzf finds matches instantly.</p>
+
+                    <p>Once you use it, you'll wonder how you ever navigated the terminal without it. It's the single biggest productivity boost for terminal users.</p>
+
+                    <h2 id="install">Installation</h2>
+
+                    <h3>Mac (Homebrew)</h3>
+                    <pre><code>brew install fzf
+# Install shell integrations
+$(brew --prefix)/opt/fzf/install</code></pre>
+
+                    <h3>Ubuntu/Debian</h3>
+                    <pre><code>sudo apt install fzf</code></pre>
+
+                    <h3>Arch Linux</h3>
+                    <pre><code>sudo pacman -S fzf</code></pre>
+
+                    <h3>From Git (Any System)</h3>
+                    <pre><code>git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install</code></pre>
+
+                    <h2 id="basics">Basic Usage</h2>
+
+                    <h3>Fuzzy File Search</h3>
+                    <pre><code># Find files in current directory
+fzf
+
+# Open selected file in vim
+vim $(fzf)
+
+# Open in VS Code
+code $(fzf)</code></pre>
+
+                    <h3>Pipe Anything to fzf</h3>
+                    <pre><code># Search through command history
+history | fzf
+
+# Search through process list
+ps aux | fzf
+
+# Search through git branches
+git branch | fzf</code></pre>
+
+                    <h2 id="keybindings">Essential Keybindings</h2>
+
+                    <p>After installation with shell integration, these keybindings are available:</p>
+
+                    <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                        <tr style="background: var(--dark-700);">
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Keybinding</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--dark-600);">Function</th>
+                        </tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+R</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);">Search command history (replaces default)</td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Ctrl+T</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);">Search files and insert path at cursor</td></tr>
+                        <tr><td style="padding: 10px; border: 1px solid var(--dark-600);"><code>Alt+C</code></td><td style="padding: 10px; border: 1px solid var(--dark-600);">Search directories and cd into selection</td></tr>
+                    </table>
+
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip: Ctrl+R is Life-Changing</h4>
+                        <p>The default <code>Ctrl+R</code> history search is clunky. fzf's replacement lets you fuzzy search through your entire history—type any part of a command to find it instantly.</p>
+                    </div>
+
+                    <h2 id="examples">Practical Examples</h2>
+
+                    <h3>Git Integration</h3>
+                    <pre><code># Checkout branch with fuzzy search
+git checkout $(git branch | fzf)
+
+# Interactive add files
+git add $(git status -s | fzf -m | awk '{print $2}')
+
+# View commit history and show diff
+git log --oneline | fzf --preview 'git show {1}'</code></pre>
+
+                    <h3>Kill Process</h3>
+                    <pre><code># Find and kill a process
+kill -9 $(ps aux | fzf | awk '{print $2}')</code></pre>
+
+                    <h3>Navigate to Directory</h3>
+                    <pre><code># cd to any directory under home
+cd $(find ~ -type d | fzf)</code></pre>
+
+                    <h3>Open Recent Files in VS Code</h3>
+                    <pre><code># Find and open recent files
+code $(find . -type f -mtime -7 | fzf)</code></pre>
+
+                    <h2 id="preview">Preview Window</h2>
+
+                    <p>fzf can show previews of files as you navigate:</p>
+
+                    <pre><code># Preview files with bat (or cat)
+fzf --preview 'bat --color=always {}'
+
+# Preview with syntax highlighting
+fzf --preview 'head -100 {}'</code></pre>
+
+                    <h3>Make Preview Default</h3>
+                    <p>Add to your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+                    <pre><code>export FZF_DEFAULT_OPTS='--preview "bat --color=always {} 2>/dev/null || cat {}"'</code></pre>
+
+                    <h2 id="customization">Customization</h2>
+
+                    <h3>Use ripgrep for Faster Search</h3>
+                    <pre><code># Install ripgrep first: brew install ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'</code></pre>
+
+                    <h3>Custom Colors</h3>
+                    <pre><code>export FZF_DEFAULT_OPTS='
+  --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+  --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+  --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+'</code></pre>
+
+                    <h3>Useful Aliases</h3>
+                    <pre><code># Add to ~/.bashrc or ~/.zshrc
+
+# Fuzzy cd
+fcd() {
+  cd "$(find . -type d | fzf)"
+}
+
+# Fuzzy open file
+fopen() {
+  open "$(fzf)"
+}
+
+# Fuzzy kill process
+fkill() {
+  kill -9 $(ps aux | fzf | awk '{print $2}')
+}
+
+# Fuzzy git checkout
+gco() {
+  git checkout $(git branch | fzf | tr -d ' ')
+}</code></pre>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Performance on Large Directories</h4>
+                        <p>In directories with millions of files, fzf can be slow. Use <code>fd</code> or <code>ripgrep</code> as the default command for better performance, and exclude directories like <code>node_modules</code> and <code>.git</code>.</p>
+                    </div>
+
+                    <h2 id="advanced">Advanced: Multi-Select</h2>
+
+                    <p>Select multiple items with <code>Tab</code> key:</p>
+
+                    <pre><code># Multi-select files to delete
+rm $(fzf -m)
+
+# Multi-select files to add to git
+git add $(fzf -m)
+
+# Open multiple files in vim
+vim $(fzf -m)</code></pre>
+
+                    <h2 id="alternatives">Alternatives to fzf</h2>
+
+                    <ul>
+                        <li><strong>skim (sk):</strong> Rust implementation, similar interface</li>
+                        <li><strong>peco:</strong> Another fuzzy finder, written in Go</li>
+                        <li><strong>zoxide:</strong> Specifically for directory jumping (works with fzf)</li>
+                    </ul>
+
+                    <h2 id="conclusion">Conclusion</h2>
+
+                    <p>fzf transforms the terminal from a precise-typing environment into a fuzzy-searching one. You don't need to remember exact commands or file paths—just type fragments and let fzf find the match.</p>
+
+                    <p>Start with <code>Ctrl+R</code> for history search. Once you see how much faster it is, you'll want to use fzf for everything else.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Jump to Section</h4>
+                        <ul class="toc-list">
+                            <li><a href="#install">Installation</a></li>
+                            <li><a href="#basics">Basic Usage</a></li>
+                            <li><a href="#keybindings">Keybindings</a></li>
+                            <li><a href="#examples">Practical Examples</a></li>
+                            <li><a href="#preview">Preview Window</a></li>
+                            <li><a href="#customization">Customization</a></li>
+                            <li><a href="#advanced">Multi-Select</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>⚡ Daily Tech Hacks</h3><p>Your trusted source for practical tech tips.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../hacks.html">All Hacks</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-links"><h4>Popular</h4><ul><li><a href="extend-phone-battery-life.html">Battery Life</a></li><li><a href="speed-up-slow-windows-computer.html">Speed Up PC</a></li><li><a href="boost-wifi-signal-strength.html">Wi-Fi</a></li></ul></div>
+                <div class="footer-links"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Daily Tech Hacks. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
